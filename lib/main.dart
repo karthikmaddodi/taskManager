@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'new_task.dart';
+import 'task/create_task.dart';
+import 'task/create_event.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class _MyAppState extends State<MyApp> {
       ),
       themeMode: _themeMode, // Use the current theme mode
       home: MyHomePage(
-        title: 'Flutter Demo Home Page',
+        title: 'Home Page',
         onThemeToggle: _toggleTheme,
       ),
     );
@@ -66,17 +67,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   void _navigateToNewPage() {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (context) => const NewTask()),
+    );
+  }
+  void _navigateToCreateEvent() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const CreateEvent()),
     );
   }
 
@@ -101,24 +99,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _navigateToNewPage,
-              child: const Text('Go to New Page'),
+              child: const Text('Create new task'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _navigateToCreateEvent,
+              child: const Text('Create new event'), // New button added
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+     );
   }
 }
