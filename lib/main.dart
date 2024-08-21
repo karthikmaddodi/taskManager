@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'task/create_task.dart';
 import 'task/create_event.dart';
+import 'task/task_page_user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -67,6 +68,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _navigateToTaskPageUser() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const TaskPageUser()),
+    );
+  }
   void _navigateToNewPage() {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (context) => const NewTask()),
@@ -108,6 +114,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: _navigateToCreateEvent,
               child: const Text('Create new event'), // New button added
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _navigateToTaskPageUser,
+              child: const Text('Go to Task Page User'),
             ),
           ],
         ),

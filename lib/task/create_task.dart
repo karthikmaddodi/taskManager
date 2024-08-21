@@ -250,6 +250,11 @@ class _NewTaskState extends State<NewTask> {
                 ],
               ),
               const SizedBox(height: 10),
+              const Text(
+                'Assign to',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
               DropdownButtonHideUnderline(
                 child: Container(
                   decoration: BoxDecoration(
